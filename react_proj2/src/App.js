@@ -10,6 +10,7 @@ import TodoList from './components/todoList';
 import {Nav} from 'react-bootstrap'
 
 function App() {
+  //navbar link definitions
   const Links = [
     {
       'name': 'Add Task',
@@ -25,6 +26,7 @@ function App() {
       <div>
         <Nav>
           {
+            //navbar link creation
             Links.map((link) => {
               return (
                 <Nav.Item>
@@ -36,6 +38,7 @@ function App() {
             })
           }
         </Nav>
+        {/**Using react-router to navigate between diffrent views */}
         <Switch>
           <Route path='/add'>
             <AddTodo />

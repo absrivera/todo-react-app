@@ -1,5 +1,5 @@
 const fn = (req, res, model, cb) => {
-
+//sequelize model to create new todo entry
         model.create({
             description: req.body.description,
             deadline: req.body.deadline

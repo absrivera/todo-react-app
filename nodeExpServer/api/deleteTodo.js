@@ -1,6 +1,6 @@
 const fn = (req, res, model) => {
 
- //   console.log(req.body.id)
+ //sequelize model to delete todo item in DB based on id
     model.destroy({
         where: {
             id: req.body.id

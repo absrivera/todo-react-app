@@ -1,15 +1,9 @@
-// import React, { useState, useEffect } from 'react'
-// import { Card, Col, Table, Button } from 'react-bootstrap'
 import axios from 'axios'
-//import { Link } from 'react-router-dom'
 import TodoList from './todoList'
-
-// const getTodos = require('./todoList')
-// const deleteTodo = require('./todoList')
-// const addTodo = require('./addTodo')
 
 jest.mock('axios')
 TodoList.getTodos = jest.fn()
+TodoList.addTodo = jest.fn()
 
 describe('todo functionality ', () => {
 
@@ -19,11 +13,4 @@ describe('todo functionality ', () => {
         axios.get.mockResolvedValue(response)
         return TodoList.getTodos().then(data => expect(data).toEqual(todos))
     })
-
-    // test('post invalid todo request', ()=>{
-    //     const todo = {}
-    //     const resposnse = {resp: 'SequelizeDatabaseError'}
-
-
-    // })
 })

@@ -4,19 +4,21 @@ const bodyParser = require('body-parser');
 const sequelize = require('./database');
 const app = express();
 const port = 4000;
-//const path = require('path');
-//const session = require('express-session');
 
+//api imports 
 const Todo = require('./models/todo')
 const getTodos = require('./api/getTodos');
 const addTodo = require('./api/addTodo');
 const deleteTodo = require('./api/deleteTodo');
 const getTodoById = require('./api/getTodoById')
 
+//middleware config
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+//server route definitions
+//routes trigger calls to the DB
 app.get('/', (req, res) => {
     res.send('Success')
 })
@@ -40,7 +42,7 @@ app.delete('/todo', (req, res) =>{
 })
 
 
-//{force: true} is what makes the DB data not persist
+//{force: true} makes the DB data not persist
 sequelize.sync()
     .then(() => {
         app.listen(port, () => {
@@ -48,7 +50,7 @@ sequelize.sync()
         });
     })
 
-//Boiler-plate, closes stream once application/node is terminated
+//closes stream once application/node is terminated
 process.on('SIGTERM', () => {
     app.close(() => {
         db.end();

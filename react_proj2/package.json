@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,9 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:4000",
-  "devDependencies": {
-    "jest": "^25.1.0",
-    "jest-transform-stub": "^2.0.0"
-  }
+  "proxy": "http://localhost:4000"
 }

@@ -1,4 +1,5 @@
 const fn = (req, res, model) => {
+    //sequelize model to find a specific todo base on id
        model.findOne({
            where: {
                id: req.body.id
